@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Prediction for New ATMs</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+</head>
+<body>
+    <div class="bg-sky-100 h-screen w-screen flex justify-center items-center">
+        <div class="bg-white shadow-lg w-1/2 p-10 pb-12 rounded-lg">
+            <form action="/location" method="post">
+                <p class="mb-2 text-xs text-gray-400 text-center">Location Prediction for new ATMs</p>
+                <h1 class="mb-5 text-4xl font-bold text-center">ENTER LOCATION</h1>
+                <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">City /
+                    Town</label>
+                <input name="location" type="text" id="base-input"
+                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-5" value="Vancouver, VAN">
+                <button
+                    class="bg-blue-500 text-white w-full py-2 text-xl rounded-md text-center hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 font-medium dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-400 flex justify-center items-center" onclick="btnClick()">
+                    <img id="loader" class="hidden h-7 w-7 mr-4" src="{{url_for('static',filename='spinner.gif')}}" /> 
+                    <span id="loaderText">ANALYZE</span>
+                    <span id="loader2" class="hidden">ANALYZING</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function btnClick(){
+            document.getElementById('loader').classList.remove('hidden')
+            document.getElementById('loader2').classList.remove('hidden')
+            document.getElementById('loaderText').classList.add('hidden')
+        }
+    </script>
+</body>
+</html>
